@@ -95,7 +95,7 @@ RUN composer global require "laravel/installer"
 RUN export PATH="$PATH:~/.composer/vendor/bin"
 RUN source ~/.bashrc
 
-#RUN laravel new blog
+RUN laravel new blog
 
 #RUN cd blog/ && chmod -R gu+w storage && chmod -R guo+w storage
 
