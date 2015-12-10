@@ -97,7 +97,7 @@ RUN source ~/.bashrc
 
 RUN laravel new blog
 
-#RUN cd blog/ && chmod -R gu+w storage && chmod -R guo+w storage
+RUN cd blog/ && chmod -R gu+w storage && chmod -R guo+w storage
 
 RUN rm -rf /sbin/sln \
     ; rm -rf /usr/{{lib,share}/locale,share/{man,doc,info,gnome/help,cracklib,il8n},{lib,lib64}/gconv,bin/localedef,sbin/build-locale-archive} \
