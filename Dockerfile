@@ -3,8 +3,8 @@ MAINTAINER Patrick <docker@patrickhenry.co.uk>
 RUN rpm --import http://mirror.centos.org/centos/RPM-GPG-KEY-CentOS-7 \
     && rpm --import http://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-7 \
     && rpm -Uvh http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
-RUN yum -y install \
-deltarpm
+#RUN yum -y install \
+#deltarpm
 RUN yum -y install \
 yum-utils \
 git \
@@ -86,23 +86,19 @@ RUN sed -i \
   -e 's~^;user_ini.filename =$~user_ini.filename =~g' \
    /etc/php.ini
 
-RUN echo '<?php phpinfo(); ?>' > /var/www/html/index.php
-
-RUN cd /var/www/html && composer require twbs/bootstrap
-
 RUN composer global require "laravel/installer"
+Volume /var/www/html
+ENV PATH="$PATH:~/.composer/vendor/bin"
 
-RUN export PATH="$PATH:~/.composer/vendor/bin"
-RUN source ~/.bashrc
+RUN cd /var/www/html && ls
 
-RUN laravel new blog
-
-RUN cd blog/ && chmod -R gu+w storage && chmod -R guo+w storage
+CMD laravel new blog
+#RUN cd blog
+#RUN chmod -R gu+w storage && chmod -R guo+w storage
 
 RUN rm -rf /sbin/sln \
     ; rm -rf /usr/{{lib,share}/locale,share/{man,doc,info,gnome/help,cracklib,il8n},{lib,lib64}/gconv,bin/localedef,sbin/build-locale-archive} \
     ; rm -rf /var/cache/{ldconfig,yum}/*
-
 EXPOSE 80 443
 
 CMD /usr/sbin/httpd -c "ErrorLog /dev/stdout" -DFOREGROUND
