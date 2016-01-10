@@ -32,7 +32,11 @@ php.x86_64 \
     php-pear-MDB2-Driver-mysqli \
     php-pecl-memcached \
     php-xml \
- composer
+ composer \
+ nodejs \
+ npm \
+ bower 
+
 
 # # UTC Timezone & Networking
 RUN echo "NETWORKING=yes" > /etc/sysconfig/network
