@@ -6,10 +6,6 @@ RUN rpm --import http://mirror.centos.org/centos/RPM-GPG-KEY-CentOS-7 \
 #RUN yum -y install \
 #deltarpm
 RUN yum -y install \
-yum-utils \
-git \
-    mod_ssl \
-    nano \
     wget
 
 RUN cd /tmp && wget http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
