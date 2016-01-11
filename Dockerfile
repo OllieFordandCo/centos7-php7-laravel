@@ -10,9 +10,7 @@ yum-utils \
 git \
     mod_ssl \
     nano \
-    wget \
-    && yum -y update bash \
-    && rm -rf /var/cache/yum/* \
+    wget 
     && yum clean all
 
 RUN cd /tmp && wget http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
