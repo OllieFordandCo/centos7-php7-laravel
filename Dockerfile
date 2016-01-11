@@ -32,11 +32,7 @@ php.x86_64 \
     php-pear-MDB2-Driver-mysqli \
     php-pecl-memcached \
     php-xml \
- composer \
- nodejs \
- npm \
- bower 
-
+ composer
 
 # # UTC Timezone & Networking
 RUN echo "NETWORKING=yes" > /etc/sysconfig/network
@@ -103,14 +99,6 @@ CMD laravel new blog
 RUN rm -rf /sbin/sln \
     ; rm -rf /usr/{{lib,share}/locale,share/{man,doc,info,gnome/help,cracklib,il8n},{lib,lib64}/gconv,bin/localedef,sbin/build-locale-archive} \
     ; rm -rf /var/cache/{ldconfig,yum}/*
-
-RUN sed -i 's/PermitRootLogin without-password/PermitRootLogin yes/' /etc/ssh/sshd_config
-
-# SSH login fix. Otherwise user is kicked off after login
-RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd
-
-
-EXPOSE 80 443 22
-
+EXPOSE 80 443
 
 CMD /usr/sbin/httpd -c "ErrorLog /dev/stdout" -DFOREGROUND
