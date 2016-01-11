@@ -10,8 +10,7 @@ yum-utils \
 git \
     mod_ssl \
     nano \
-    wget 
-    && yum clean all
+    wget
 
 RUN cd /tmp && wget http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
 RUN rpm -Uvh http://rpms.remirepo.net/enterprise/remi-release-7.rpm
