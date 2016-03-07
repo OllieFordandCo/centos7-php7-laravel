@@ -2,8 +2,6 @@ FROM centos:7
 MAINTAINER Patrick <docker@patrickhenry.co.uk>
 
 RUN yum -y install \
-MariaDB-server \
-MariaDB-client \
 wget \
 php.x86_64 \
  php-mbstring \
