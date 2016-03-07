@@ -1,10 +1,7 @@
 FROM centos:7
 MAINTAINER Patrick <docker@patrickhenry.co.uk>
 
-RUN yum -y install \
-wget \
-php.x86_64 \
- composer
+RUN yum -y install composer
 
 RUN wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 RUN wget http://rpms.remirepo.net/enterprise/remi-release-7.rpm
