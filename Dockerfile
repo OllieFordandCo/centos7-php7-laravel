@@ -4,13 +4,6 @@ MAINTAINER Patrick <docker@patrickhenry.co.uk>
 RUN yum -y install \
 wget \
 php.x86_64 \
- php-mbstring \
- php-mysqlnd \
- php-opcache \
-    php-mysql \
-    php-pear-MDB2-Driver-mysqli \
-    php-pecl-memcached \
-    php-xml \
  composer
 
 RUN wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
