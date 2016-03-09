@@ -12,9 +12,6 @@ RUN yum -y update
 RUN yum -y install wget 
 RUN yum -y install composer 
 
-RUN yum -y install httpd
-
-
 RUN cd /tmp && wget http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
 RUN rpm -Uvh http://rpms.remirepo.net/enterprise/remi-release-7.rpm
 RUN yum-config-manager --enable remi-php70
