@@ -1,20 +1,39 @@
 FROM centos:7
 MAINTAINER Patrick <docker@patrickhenry.co.uk>
+RUN rpm --import http://mirror.centos.org/centos/RPM-GPG-KEY-CentOS-7 \
+    && rpm --import http://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-7 \
+    && rpm -Uvh http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
+#RUN yum -y install \
+#deltarpm
+RUN yum -y install \
+yum-utils \
+git \
+    mysql-devel \
+    mysql-libs \
+    mod_ssl \
+    nano \
+    wget \
+    && yum -y update bash \
+    && rm -rf /var/cache/yum/* \
+    && yum clean all
 
-RUN yum -y install wget \ 
-curl
-
-RUN wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-RUN wget http://rpms.remirepo.net/enterprise/remi-release-7.rpm
-RUN rpm -Uvh remi-release-7.rpm epel-release-latest-7.noarch.rpm
-RUN curl -sS https://getcomposer.org/installer | php
-RUN mv composer.phar /usr/local/bin/composer
-
-RUN yum -y install composer
-
+RUN cd /tmp && wget http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
+RUN rpm -Uvh http://rpms.remirepo.net/enterprise/remi-release-7.rpm
 RUN yum-config-manager --enable remi-php70
 
-RUN yum update
+RUN yum -y install \
+MariaDB-server \
+MariaDB-client \
+php.x86_64 \
+ php-mbstring \
+ php-mysqlnd \
+ php-opcache \
+    php-mysql \
+    php-pear-MDB2-Driver-mysqli \
+    php-pecl-memcached \
+    php-xml \
+ composer
+
 # # UTC Timezone & Networking
 RUN echo "NETWORKING=yes" > /etc/sysconfig/network
 
@@ -73,28 +92,13 @@ ENV PATH="$PATH:~/.composer/vendor/bin"
 
 RUN cd /var/www/html && ls
 
-RUN laravel new blog
+CMD laravel new blog
 #RUN cd blog
 #RUN chmod -R gu+w storage && chmod -R guo+w storage
-
-RUN mkdir /var/run/sshd
-RUN echo 'root:screencast' | chpasswd
-RUN sed -i 's/PermitRootLogin without-password/PermitRootLogin yes/' /etc/ssh/sshd_config
-
-# SSH login fix. Otherwise user is kicked off after login
-RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd
-
-ENV NOTVISIBLE "in users profile"
-RUN echo "export VISIBLE=now" >> /etc/profile
 
 RUN rm -rf /sbin/sln \
     ; rm -rf /usr/{{lib,share}/locale,share/{man,doc,info,gnome/help,cracklib,il8n},{lib,lib64}/gconv,bin/localedef,sbin/build-locale-archive} \
     ; rm -rf /var/cache/{ldconfig,yum}/*
-EXPOSE 80 443 22
+EXPOSE 80 443
 
 CMD /usr/sbin/httpd -c "ErrorLog /dev/stdout" -DFOREGROUND
-
-
-CMD ["/usr/sbin/sshd", "-D"]
-
-
