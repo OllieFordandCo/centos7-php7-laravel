@@ -5,12 +5,7 @@ RUN rpm --import http://mirror.centos.org/centos/RPM-GPG-KEY-CentOS-7 \
     && rpm -Uvh http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
 #RUN yum -y install \
 #deltarpm
-RUN yum -y install \
-yum-utils \
-git \
-    mod_ssl \
-    nano \
-    wget 
+RUN yum -y install wget 
 
 RUN cd /tmp && wget http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
 RUN rpm -Uvh http://rpms.remirepo.net/enterprise/remi-release-7.rpm
