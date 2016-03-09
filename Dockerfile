@@ -1,6 +1,16 @@
 FROM centos:7
-MAINTAINER Patrick <docker@patrickhenry.co.uk>
+MAINTAINER Patrick <patrick.henry@linkshare.com>
+RUN yum -y install httpd; yum clean all; systemctl enable httpd.service
 
-RUN yum -y update
+RUN rpm --import http://mirror.centos.org/centos/RPM-GPG-KEY-CentOS-7 \
+    && rpm --import http://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-7 \
+    && rpm -Uvh http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
 
-EXPOSE 80 443
+RUN yum -y install \ 
+    gcc \
+    git \
+    nodejs \
+    npm \
+    ruby
+
+CMD /usr/sbin/httpd -c "ErrorLog /dev/stdout" -DFOREGROUND
