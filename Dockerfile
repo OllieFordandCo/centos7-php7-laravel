@@ -7,7 +7,6 @@ RUN rpm --import http://mirror.centos.org/centos/RPM-GPG-KEY-CentOS-7 \
     && rpm -Uvh http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
 
 RUN yum -y install \ 
-    php \
     git
     
 EXPOSE 80 443 22
