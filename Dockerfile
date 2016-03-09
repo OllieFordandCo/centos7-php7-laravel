@@ -11,6 +11,8 @@ RUN cd /tmp && wget http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
 RUN rpm -Uvh http://rpms.remirepo.net/enterprise/remi-release-7.rpm
 RUN yum-config-manager --enable remi-php70
 
+RUN yum -y install php 
+
 
 EXPOSE 80 443
 
