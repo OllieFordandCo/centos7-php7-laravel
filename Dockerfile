@@ -11,13 +11,8 @@ RUN cd /tmp && wget http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
 RUN rpm -Uvh http://rpms.remirepo.net/enterprise/remi-release-7.rpm
 RUN yum-config-manager --enable remi-php70
 
-RUN yum -y install \
-php.x86_64 \
- php-mbstring \
- php-mysqlnd \
- php-opcache \
-    php-pecl-memcached \
-    php-xml 
+RUN yum -y install php.x86_64
+
 # # UTC Timezone & Networking
 RUN echo "NETWORKING=yes" > /etc/sysconfig/network
 
