@@ -1,11 +1,13 @@
 FROM centos:7
 MAINTAINER Patrick <docker@patrickhenry.co.uk>
 
-RUN yum -y install composer
 
 RUN wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 RUN wget http://rpms.remirepo.net/enterprise/remi-release-7.rpm
 RUN rpm -Uvh remi-release-7.rpm epel-release-latest-7.noarch.rpm
+RUN curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/local/bin/composer
+
+RUN yum -y install composer
 
 RUN yum-config-manager --enable remi-php70
 
