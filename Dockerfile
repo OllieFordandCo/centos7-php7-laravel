@@ -8,9 +8,6 @@ RUN rpm --import http://mirror.centos.org/centos/RPM-GPG-KEY-CentOS-7 \
 
 RUN yum -y install \ 
     gcc \
-    git \
-    nodejs \
-    npm \
-    ruby
+    git
 
 CMD /usr/sbin/httpd -c "ErrorLog /dev/stdout" -DFOREGROUND
