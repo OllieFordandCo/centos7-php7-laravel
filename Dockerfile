@@ -11,6 +11,10 @@ RUN cd /tmp && wget http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
 RUN rpm -Uvh http://rpms.remirepo.net/enterprise/remi-release-7.rpm
 RUN yum-config-manager --enable remi-php70
 
+RUN composer global require "laravel/installer"
+Volume /var/www/html
+ENV PATH="$PATH:~/.composer/vendor/bin"
+
 EXPOSE 80 443
 
 CMD /usr/sbin/httpd -c "ErrorLog /dev/stdout" -DFOREGROUND
