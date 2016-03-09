@@ -8,8 +8,6 @@ RUN rpm --import http://mirror.centos.org/centos/RPM-GPG-KEY-CentOS-7 \
 RUN yum -y install \
 yum-utils \
 git \
-    mysql-devel \
-    mysql-libs \
     mod_ssl \
     nano \
     wget 
@@ -19,14 +17,10 @@ RUN rpm -Uvh http://rpms.remirepo.net/enterprise/remi-release-7.rpm
 RUN yum-config-manager --enable remi-php70
 
 RUN yum -y install \
-MariaDB-server \
-MariaDB-client \
 php.x86_64 \
  php-mbstring \
  php-mysqlnd \
  php-opcache \
-    php-mysql \
-    php-pear-MDB2-Driver-mysqli \
     php-pecl-memcached \
     php-xml \
  composer
