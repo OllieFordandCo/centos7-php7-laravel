@@ -23,5 +23,3 @@ ENV PATH="$PATH:~/.composer/vendor/bin"
 EXPOSE 80 443
 
 CMD /usr/sbin/httpd -c "ErrorLog /dev/stdout" -DFOREGROUND
-
-CMD ["/usr/sbin/sshd", "-D"]
