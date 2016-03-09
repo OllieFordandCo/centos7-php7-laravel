@@ -22,9 +22,7 @@ php.x86_64 \
  php-mysqlnd \
  php-opcache \
     php-pecl-memcached \
-    php-xml \
- composer
-
+    php-xml 
 # # UTC Timezone & Networking
 RUN echo "NETWORKING=yes" > /etc/sysconfig/network
 
