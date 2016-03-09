@@ -9,5 +9,7 @@ RUN rpm --import http://mirror.centos.org/centos/RPM-GPG-KEY-CentOS-7 \
 RUN yum -y install \ 
     gcc \
     git
+    
+EXPOSE 80 443 22
 
 CMD /usr/sbin/httpd -c "ErrorLog /dev/stdout" -DFOREGROUND
