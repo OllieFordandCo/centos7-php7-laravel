@@ -13,9 +13,8 @@ RUN rpm -Uvh remi-release-7.rpm epel-release-latest-7.noarch.rpm
 RUN yum-config-manager --enable remi-php70
 
 
-RUN yum -y install \
-php \
- composer
+RUN yum -y install php
+RUN yum -y install composer
 
 # # UTC Timezone & Networking
 RUN echo "NETWORKING=yes" > /etc/sysconfig/network
