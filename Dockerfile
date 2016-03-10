@@ -14,8 +14,6 @@ RUN yum-config-manager --enable remi-php70
 
 
 RUN yum -y install \
-MariaDB-server \
-MariaDB-client \
 php.x86_64 \
  php-mbstring \
  php-mysqlnd \
