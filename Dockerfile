@@ -14,14 +14,7 @@ RUN yum-config-manager --enable remi-php70
 
 
 RUN yum -y install \
-php.x86_64 \
- php-mbstring \
- php-mysqlnd \
- php-opcache \
-    php-mysql \
-    php-pear-MDB2-Driver-mysqli \
-    php-pecl-memcached \
-    php-xml \
+php \
  composer
 
 # # UTC Timezone & Networking
