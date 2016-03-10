@@ -28,5 +28,3 @@ RUN laravel new blog
 #RUN chmod -R gu+w storage && chmod -R guo+w storage
 
 EXPOSE 80 443 22
-
-CMD /usr/sbin/httpd -c "ErrorLog /dev/stdout" -DFOREGROUND
