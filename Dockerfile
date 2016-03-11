@@ -1,10 +1,8 @@
-FROM centos:centos7
-MAINTAINER Jean-Michael Cyr <cyrjeanmichael@gmail.com # Install Utilities and Base Apps 
-RUN yum -y update && yum -y install httpd wget gcc gcc-c++ make nano locate git && yum -y clean all
-RUN wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-RUN wget http://rpms.remirepo.net/enterprise/remi-release-7.rpm
-RUN rpm -Uvh remi-release-7.rpm epel-release-latest-7.noarch.rpm
-RUN yum-config-manager --enable remi-php70
-RUN yum -y install composer
-ENV PATH="$PATH:~/.composer/vendor/bin"
-EXPOSE 80 CMD ["/usr/sbin/httpd", "-D", "FOREGROUND"]
+FROM jnmik/docker-centos7-httpd-utilities:latest
+MAINTAINER Jean-Michael Cyr <cyrjeanmichael@gmail.com>
+
+# Update repo for php 5.6
+#RUN rpm -Uvh https://mirror.webtatic.com/yum/el7/epel-release.rpm
+RUN rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
+RUN rpm -Uvh http://download.newrelic.com/pub/newrelic/el5/i386/newrelic-repo-5-3.noarch.rpm
+RUN yum -y update && yum -y install php56w php56w-mysql php56w-xml php56w-mbstring php56w-opcache newrelic-sysmond newrelic-php5 && yum -y clean all
