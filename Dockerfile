@@ -1,7 +1,8 @@
 FROM centos:7
 MAINTAINER Patrick <docker@patrickhenry.co.uk>
-RUN yum clean all
 RUN yum update -y
+RUN yum clean all
+
 RUN yum -y install httpd
 RUN yum -y install wget
 
