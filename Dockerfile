@@ -13,6 +13,3 @@ RUN wget http://rpms.remirepo.net/enterprise/remi-release-7.rpm
 
 RUN yum-config-manager --enable remi-php70
 
-RUN curl -sS https://getcomposer.org/installer | php
-
-RUN mv composer.phar /usr/local/bin/composer
