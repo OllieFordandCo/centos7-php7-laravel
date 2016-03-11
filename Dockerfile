@@ -8,6 +8,8 @@ RUN yum -y install wget
 
 RUN wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 
+RUN wget http://rpms.remirepo.net/enterprise/remi-release-7.rpm
+
 
 RUN yum-config-manager --enable remi-php70
 
