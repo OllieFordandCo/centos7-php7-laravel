@@ -1,4 +1,4 @@
-FROM centos:7
+FROM jdeathe/centos-ssh:centos-6-1.4.2
 MAINTAINER Patrick <docker@patrickhenry.co.uk>
 RUN yum update -y
 RUN yum clean all
