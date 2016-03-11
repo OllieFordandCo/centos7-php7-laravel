@@ -14,3 +14,5 @@ RUN rpm -Uvh remi-release-7.rpm
 
 RUN yum-config-manager --enable remi-php70
 
+RUN yum -y install php
+
