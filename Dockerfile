@@ -6,6 +6,8 @@ MAINTAINER Jean-Michael Cyr <cyrjeanmichael@gmail.com>
 
 RUN yum -y install wget
 
+RUN yum -y install git
+
 RUN wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 
 RUN wget http://rpms.remirepo.net/enterprise/remi-release-7.rpm
