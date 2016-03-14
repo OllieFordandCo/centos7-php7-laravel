@@ -17,5 +17,8 @@ RUN yum-config-manager --enable remi-php70
 RUN yum -y install unzip
 RUN yum -y install php
 
+RUN curl -sS https://getcomposer.org/installer | php
+RUN mv composer.phar /usr/local/bin/composer
+
 #install
 WORKDIR /var/www/html/
