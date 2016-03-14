@@ -34,6 +34,8 @@ RUN mv composer.phar /usr/local/bin/composer
 
 RUN git clone https://github.com/padster2015/red-fusion.git . 
 
+RUN chmod 777 -R *
+
 RUN chmod -R guo+w storage
 
 RUN chmod -R gu+w storage
