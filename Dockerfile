@@ -31,5 +31,3 @@ RUN git clone https://github.com/padster2015/red-fusion.git .
 RUN chmod -R guo+w storage
 
 RUN chmod -R gu+w storage
-
-RUN composer install
