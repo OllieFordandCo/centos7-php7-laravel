@@ -20,6 +20,11 @@ RUN yum -y install php
 RUN yum -y install php70-php-mbstring
 RUN yum -y install php70-php-mcrypt
 
+RUN wget https://phar.phpunit.de/phpunit.phar
+RUN chmod +x phpunit.phar
+RUN mv phpunit.phar /usr/local/bin/phpunit
+
+
 #install
 WORKDIR /var/www/html/
 
