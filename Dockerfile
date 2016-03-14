@@ -84,7 +84,6 @@ ENV PATH="$PATH:~/.composer/vendor/bin"
 
 RUN cd /var/www/html && ls
 
-CMD laravel new blog
 #RUN cd blog
 #RUN chmod -R gu+w storage && chmod -R guo+w storage
 
