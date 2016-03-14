@@ -1,5 +1,5 @@
-FROM jnmik/docker-centos7-httpd-utilities:latest
-MAINTAINER Jean-Michael Cyr <cyrjeanmichael@gmail.com>
+FROM centos:7
+MAINTAINER patrick henry <docker@patrickhenry.co.uk>
 
 # Update repo for php 5.6
 #RUN rpm -Uvh https://mirror.webtatic.com/yum/el7/epel-release.rpm
