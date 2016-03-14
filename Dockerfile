@@ -5,14 +5,7 @@ RUN rpm --import http://mirror.centos.org/centos/RPM-GPG-KEY-CentOS-7 \
     && rpm -Uvh http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
 #RUN yum -y install \
 #deltarpm
-RUN yum -y install \
-yum-utils \
-git \
-    mysql-devel \
-    mysql-libs \
-    mod_ssl \
-    nano \
-    wget
+RUN yum -y install git  mysql-devel mysql-libs  mod_ssl  nano   wget
 
 
 RUN wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
