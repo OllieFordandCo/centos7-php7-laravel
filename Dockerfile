@@ -17,4 +17,13 @@ RUN rpm -Uvh remi-release-7.rpm
 RUN yum-config-manager --enable remi-php70
 
 RUN yum -y install php
+#install
+WORKDIR /var/www/html/
 
+RUN git clone https://github.com/padster2015/red-fusion.git . 
+
+RUN chmod -R guo+w storage
+
+RUN chmod -R gu+w storage
+
+RUN composer install
