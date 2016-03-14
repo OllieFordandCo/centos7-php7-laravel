@@ -18,7 +18,7 @@ RUN yum-config-manager --enable remi-php70
 RUN yum -y install unzip
 RUN yum -y install php
 RUN yum -y install mbstring
-RUN yum -y install mcrypt
+RUN yum -y install php70-php-mcrypt
 RUN yum -y install php70-php-xml
 
 RUN wget https://phar.phpunit.de/phpunit.phar
