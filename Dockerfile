@@ -20,6 +20,9 @@ RUN yum -y install php
 #install
 WORKDIR /var/www/html/
 
+RUN curl -sS https://getcomposer.org/installer | php
+RUN mv composer.phar /usr/local/bin/composer
+
 RUN git clone https://github.com/padster2015/red-fusion.git . 
 
 RUN chmod -R guo+w storage
