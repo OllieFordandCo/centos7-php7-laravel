@@ -14,17 +14,19 @@ git \
     nano \
     wget
 
-RUN cd /tmp && wget http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
-RUN rpm -Uvh http://rpms.remirepo.net/enterprise/remi-release-7.rpm
+
+RUN wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+
+RUN wget http://rpms.remirepo.net/enterprise/remi-release-7.rpm
+
+RUN rpm -Uvh remi-release-7.rpm
+
 RUN yum-config-manager --enable remi-php70
+RUN yum -y install unzip
+RUN yum -y install php
 
 RUN yum -y install \
-MariaDB-server \
-MariaDB-client \
-php.x86_64 \
  php-mbstring \
- php-mysqlnd \
- php-opcache \
     php-mysql \
     php-pear-MDB2-Driver-mysqli \
     php-pecl-memcached \
