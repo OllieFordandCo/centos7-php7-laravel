@@ -34,8 +34,6 @@ php.x86_64 \
     php-xml \
  composer
 
-VOLUME /var/www/html
-
 RUN echo '<?php phpinfo(); ?>' > /var/www/html/index.php
 
 RUN cd /var/www/html && composer require twbs/bootstrap
